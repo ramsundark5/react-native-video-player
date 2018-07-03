@@ -107,7 +107,7 @@ export default class KSYVideo extends Component {
 
     };
 
-    reloadVideo(url){
+    resetVideo(url){
 
         UIManager.dispatchViewManagerCommand(
             findNodeHandle(this.refs[RCT_VIDEO_REF]),
