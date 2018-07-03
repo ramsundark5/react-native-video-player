@@ -361,8 +361,13 @@ public class ReactKSYVideoView extends RelativeLayout implements LifecycleEventL
     }
 
     public void reset(String url){
-        ksyTextureView.reset();
-        this.setDataSource(url);
+
+        if (ksyTextureView != null){
+            
+            ksyTextureView.reset();
+            this.setDataSource(url);
+        } 
+
     }    
 
     public void saveBitmap() {
