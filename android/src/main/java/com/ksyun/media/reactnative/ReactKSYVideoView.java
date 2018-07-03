@@ -344,6 +344,27 @@ public class ReactKSYVideoView extends RelativeLayout implements LifecycleEventL
         }
     }
 
+    public void reload(String url){
+
+        WritableMap src = Arguments.createMap();
+        src.putString(ReactKSYVideoViewManager.PROP_SRC_URI, url);
+
+        WritableMap event = Arguments.createMap();
+        event.putMap(ReactKSYVideoViewManager.PROP_SRC, src);
+        mEventEmitter.receiveEvent(getId(), Events.EVENT_LOAD_START.toString(), event);
+        mDataSource = url;
+
+        if (ksyTextureView != null){
+
+             ksyTextureView.reload(url, true);
+        }                  
+    }
+
+    public void reset(String url){
+        ksyTextureView.reset();
+        this.setDataSource(url);
+    }    
+
     public void saveBitmap() {
         String imageName = System.currentTimeMillis() + ".jpg";
         File file = new File(imageFile, imageName);

@@ -97,6 +97,26 @@ export default class KSYVideo extends Component {
         }
     };
 
+    reloadVideo(url){
+
+        UIManager.dispatchViewManagerCommand(
+            findNodeHandle(this.refs[RCT_VIDEO_REF]),
+            UIManager.RCTKSYVideo.Commands.reloadVideoSource,
+            [{uri:url}]
+        );
+
+    };
+
+    reloadVideo(url){
+
+        UIManager.dispatchViewManagerCommand(
+            findNodeHandle(this.refs[RCT_VIDEO_REF]),
+            UIManager.RCTKSYVideo.Commands.resetVideoSource,
+            [{uri:url}]
+        );
+
+    };  
+
     saveBitmap(){
         UIManager.dispatchViewManagerCommand(
             findNodeHandle(this.refs[RCT_VIDEO_REF]),
